@@ -1,0 +1,16 @@
+      <AnimatePresence mode='popLayout'>
+        {
+          isVisible && <motion.div
+            initial={{ rotate: "0deg", scale: 0, y: 0 }}
+            animate={{ rotate: "180deg", scale: 1, y: [0, 150, -150, -150, 0] }}
+            exit={{ rotate: "0deg", scale: 0, y: 0 }}
+            transition={{
+              duration: 2,
+              ease: "backInOut",
+              times: [0, .25, .5, .85, 1]
+            }}
+            className='w-[8rem] h-[8rem] bg-black'>
+          </motion.div>
+        }
+      </AnimatePresence>
+      <motion.button layout className='mt-4 p-2 bg-purple-500' onClick={() => setIsVisible(!isVisible)}>show/hide</motion.button>
